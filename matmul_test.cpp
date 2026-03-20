@@ -50,10 +50,7 @@ void MatmulNaive_Tile(const Matrix<double>& A, const Matrix<double>& B, const Ma
     auto N = B.col();
     auto K = A.row();
 
-    constexpr auto BLOCK=64; /* 
-    """64x64 boyutunda blok kullanıyoruz.
-    Cache boyutuna göre seçilmiş, L1 veya L2 cache'de rahatça sığacak boyut."""
-    */
+    constexpr auto BLOCK=64; 
 
     for(int ib=0; ib<M; ib+=BLOCK){
         for(int kb=0; kb<K; kb+=BLOCK){
