@@ -32,7 +32,7 @@ $$
 with row-major memory layout and contiguous leading dimensions. For performance analysis, the benchmarked speedup is defined as:
 
 $$
-  ext{speedup} = \frac{t_{\text{torch}}}{t_{\text{fastgemm}}}
+speedup = \frac{t_{\text{torch}}}{t_{\text{fastgemm}}}
 $$
 
 where values greater than 1 indicate `fastgemm` advantage.
@@ -52,7 +52,7 @@ flowchart LR
     F -->|yes| G[cblas_sgemm / cblas_dgemm]
     F -->|no| H[Packed Panel + Micro-kernel Path]
 
-    H --> I[AVX2/FMA 4x8 | NEON 4x4 | Scalar 4x4]
+    H --> I[AVX2/FMA 4x8, NEON 4x4, Scalar 4x4]
     I --> J[Threaded j-tile scheduling]
     J --> K[Output Matrix C]
     G --> K
@@ -246,7 +246,7 @@ If this repository supports your research or systems work, cite it as software:
   title  = {fastgemm: A CPU-Centric High-Performance GEMM Engine with Python Interoperability},
   author = {Yilmaz, Burak},
   year   = {2026},
-  url    = {https://github.com/<your-account>/<your-repo>}
+  url    = {https://github.com/burakyiImaz/matmul}
 }
 ```
 
